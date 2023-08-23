@@ -17,9 +17,9 @@ def read_root():
 
 
 @app.get("/items/{item_id}") # also can use async in front of the function
-async def read_item(item_id: int, q: Union[str, None] = None): # => same with {{ q: str }} whats the diff?
-    return {"item_id": item_id, "q": q}
-
+async def read_item(item_id: int, q: Union[str, None] = None): # => same with {{ q: str }} whats the diff? 
+    return {"item_id": item_id, "q": q}                        # A. if you don't declare default: none,
+                                                               # variable q is no longer optional
 
 @app.put("/items/{item_id}")
 def update_item(item_id: int, item: Item):
